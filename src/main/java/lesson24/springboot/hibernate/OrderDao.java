@@ -14,9 +14,9 @@ public interface OrderDao {
 
 	Orders findOrderById(BigDecimal id);
 
-	boolean insertOrder(Orders order);
+	void insertOrder(Orders order);
 
-	boolean updateOrder(Orders order);
+	void updateOrder(Orders order);
 
-	boolean deleteOrder(BigDecimal id);
+	void deleteOrder(BigDecimal id);
 }

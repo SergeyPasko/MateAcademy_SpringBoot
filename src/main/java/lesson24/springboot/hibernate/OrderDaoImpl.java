@@ -57,7 +57,6 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			// Getting Session Object From SessionFactory
 			sessionObj = sessionFactoryObj.openSession();
-
 			order = sessionObj.get(Orders.class, id);
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
@@ -70,8 +69,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 
 	@Override
-	public boolean insertOrder(Orders order) {
-		boolean result = false;
+	public void insertOrder(Orders order) {
 		try {
 			// Getting Session Object From SessionFactory
 			sessionObj = sessionFactoryObj.openSession();
@@ -82,11 +80,10 @@ public class OrderDaoImpl implements OrderDao {
 
 			// Committing The Transactions To The Database
 			sessionObj.getTransaction().commit();
-			result = true;
-			LOG.info("\nSuccessfully Created Records In The Database!\n");
+			LOG.info("Successfully Created Records In The Database!");
 		} catch (Exception sqlException) {
 			if (null != sessionObj.getTransaction()) {
-				LOG.info("\n.......Transaction Is Being Rolled Back.......\n");
+				LOG.info(".......Transaction Is Being Rolled Back.......");
 				sessionObj.getTransaction().rollback();
 			}
 			sqlException.printStackTrace();
@@ -95,12 +92,10 @@ public class OrderDaoImpl implements OrderDao {
 				sessionObj.close();
 			}
 		}
-		return result;
 	}
 
 	@Override
-	public boolean updateOrder(Orders order) {
-		boolean result = false;
+	public void updateOrder(Orders order) {
 		try {
 			// Getting Session Object From SessionFactory
 			sessionObj = sessionFactoryObj.openSession();
@@ -109,11 +104,10 @@ public class OrderDaoImpl implements OrderDao {
 			sessionObj.update(order);
 			// Committing The Transactions To The Database
 			sessionObj.getTransaction().commit();
-			result = true;
-			LOG.info("\nOrder With Id={} Is Successfully Updated In The Database!\n", order.getOrderNum());
+			LOG.info("Order With Id={} Is Successfully Updated In The Database!", order.getOrderNum());
 		} catch (Exception sqlException) {
 			if (null != sessionObj.getTransaction()) {
-				LOG.info("\n.......Transaction Is Being Rolled Back.......\n");
+				LOG.info(".......Transaction Is Being Rolled Back.......");
 				sessionObj.getTransaction().rollback();
 			}
 			sqlException.printStackTrace();
@@ -122,12 +116,10 @@ public class OrderDaoImpl implements OrderDao {
 				sessionObj.close();
 			}
 		}
-		return result;
 	}
 
 	@Override
-	public boolean deleteOrder(BigDecimal id) {
-		boolean result = false;
+	public void deleteOrder(BigDecimal id) {
 		try {
 			// Getting Session Object From SessionFactory
 			sessionObj = sessionFactoryObj.openSession();
@@ -138,11 +130,10 @@ public class OrderDaoImpl implements OrderDao {
 
 			// Committing The Transactions To The Database
 			sessionObj.getTransaction().commit();
-			result = true;
-			LOG.info("\nOrder With Id={} Is Successfully deleted from The Database!\n", id);
+			LOG.info("Order With Id={} Is Successfully deleted from The Database!", id);
 		} catch (Exception sqlException) {
 			if (null != sessionObj.getTransaction()) {
-				LOG.info("\n.......Transaction Is Being Rolled Back.......\n");
+				LOG.info(".......Transaction Is Being Rolled Back.......");
 				sessionObj.getTransaction().rollback();
 			}
 			sqlException.printStackTrace();
@@ -151,7 +142,6 @@ public class OrderDaoImpl implements OrderDao {
 				sessionObj.close();
 			}
 		}
-		return result;
 	}
 
 }
