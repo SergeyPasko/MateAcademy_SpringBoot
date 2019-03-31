@@ -1,4 +1,4 @@
-package lesson24.springboot.hibernate;
+package lesson24.springboot.dao;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -22,6 +22,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import lesson24.springboot.dao.OrderDaoImpl;
 import lesson24.springboot.entity.Orders;
 
 @RunWith(SpringRunner.class)

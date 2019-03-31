@@ -1,4 +1,4 @@
-package lesson24.springboot.hibernate;
+package lesson24.springboot.dao;
 
 import java.math.BigDecimal;
 import java.util.Set;

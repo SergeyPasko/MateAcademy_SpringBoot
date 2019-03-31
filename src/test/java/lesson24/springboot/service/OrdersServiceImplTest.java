@@ -20,8 +20,8 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import lesson24.springboot.dao.OrderDaoImpl;
 import lesson24.springboot.entity.Orders;
-import lesson24.springboot.hibernate.OrderDaoImpl;
 
 /**
  * @author spasko
